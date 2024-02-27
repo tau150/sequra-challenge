@@ -24,6 +24,7 @@
       "@/*": [
         "./src/*"
       ],
+      "public/*": ["public/"]
     }
   },
   "include": ["src", "main.js", "tests"],

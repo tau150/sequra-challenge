@@ -6,6 +6,6 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Widget />
+    <Widget amount="39999" />
   </React.StrictMode>,
 );
