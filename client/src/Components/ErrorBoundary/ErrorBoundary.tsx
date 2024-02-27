@@ -1,5 +1,6 @@
 import { Component, ErrorInfo, ReactNode } from "react";
 
+import ErrorCard from "@/Components/ErrorCard/ErrorCard";
 interface Props {
   children?: ReactNode;
 }
@@ -23,7 +24,7 @@ class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      return <h1>It seems something went wrong, please try again later.</h1>;
+      return <ErrorCard />;
     }
 
     return this.props.children;
