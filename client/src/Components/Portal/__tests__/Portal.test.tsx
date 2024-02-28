@@ -7,7 +7,7 @@ describe("Portal", () => {
   const root = document.createElement("div");
   const content = "some test text";
 
-  root.setAttribute("id", "modal-root");
+  root.setAttribute("id", "sequra-modal-root");
 
   beforeEach(() => {
     document.body.appendChild(root);
@@ -21,7 +21,7 @@ describe("Portal", () => {
       { container: root },
     );
 
-    const portalContent = document.querySelector("#modal-root div");
+    const portalContent = document.querySelector("#sequra-modal-root div");
 
     expect(portalContent).toBeInTheDocument();
     expect(screen.getByText(content)).toBeInTheDocument();

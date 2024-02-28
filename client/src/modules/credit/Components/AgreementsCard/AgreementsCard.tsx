@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 
 import logo from "/images/sequra-logo.png";
 
 import InfoModal from "../InfoModal/InfoModal";
 
-import { mapAgreements } from "./AgreementCard.utils";
-
 import type { Agreement } from "@/modules/credit/domain/Agreement";
 
+import { EventType, EventContext } from "@/modules/logs/domain/LogEvent";
+import { mapAgreements } from "@/modules/credit/Components/AgreementsCard/AgreementCard.utils";
+import { usePostLog } from "@/modules/logs/hooks/usePostLog";
 import { useGetAgreements } from "@/modules/credit/hooks/useGetAgreements";
 import ErrorCard from "@/Components/ErrorCard/ErrorCard";
 
@@ -19,6 +20,9 @@ const AgreementsCard = ({ amount }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInstallment, setSelectedInstallment] = useState<number>(0);
   const { data, isLoading, isError } = useGetAgreements(amount);
+  const mutation = usePostLog({
+    onError: () => console.warn("Error in log event"),
+  });
 
   useEffect(() => {
     if (data) {
@@ -29,6 +33,23 @@ const AgreementsCard = ({ amount }: Props) => {
   if (isError) {
     return <ErrorCard />;
   }
+
+  const handleOptionChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    mutation.mutate({
+      context: EventContext.CHECKOUT_WIDGET,
+      type: EventType.SIMULATOR_INSTALLMENT_CHANGE,
+      selectedInstalment: e.target.value,
+    });
+    setSelectedInstallment(Number(e.target.value));
+  };
+
+  const handleOpenModal = () => {
+    mutation.mutate({
+      context: EventContext.CHECKOUT_WIDGET,
+      type: EventType.SIMULATOR_INSTALLMENT_MODAL_OPEN,
+    });
+    setIsModalOpen(true);
+  };
 
   const fee = data?.find((agreement) => agreement.installments === selectedInstallment)?.fee;
 
@@ -50,7 +71,7 @@ const AgreementsCard = ({ amount }: Props) => {
           ) : (
             <a
               className="text-sm underline text-green-400 cursor-pointer"
-              onClick={() => setIsModalOpen(true)}
+              onClick={handleOpenModal}
             >
               More info
             </a>
@@ -63,7 +84,7 @@ const AgreementsCard = ({ amount }: Props) => {
             <select
               className="border-color w-full ring-1 ring-green-400/50 rounded-sm p-2 my-2"
               value={selectedInstallment}
-              onChange={(e) => setSelectedInstallment(Number(e.target.value))}
+              onChange={handleOptionChange}
             >
               {mapAgreements(data as Agreement[])}
             </select>

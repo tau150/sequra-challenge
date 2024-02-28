@@ -9,7 +9,7 @@ describe("Modal component", () => {
   const content = "some test text";
   const handleClose = vi.fn();
 
-  root.setAttribute("id", "modal-root");
+  root.setAttribute("id", "sequra-modal-root");
 
   beforeEach(() => {
     document.body.appendChild(root);
