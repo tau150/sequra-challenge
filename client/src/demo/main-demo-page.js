@@ -1,3 +1,12 @@
+import { setAmount } from "../main";
+const regex = /[^\d]/g;
+
+const getAndParsePrice = () => {
+  const productPrice = $("#product-price").html();
+
+  return productPrice.replace(regex, "");
+};
+
 $(document).ready(function () {
   $(".item-color").on("click", function () {
     $(".item-color").removeClass("ring hover:ring-gray-200").addClass("hover:ring-gray-200");
@@ -7,29 +16,44 @@ $(document).ready(function () {
   $(".product-capacity").on("click", function () {
     $(".product-capacity").removeClass("ring");
     $(this).addClass("ring");
-    $("#product-price").html($(this).find("span").attr("data-price"));
+    const price = $(this).find("span").attr("data-price");
+
+    $("#product-price").html(price);
+
+    const parsedPrice = price.replace(regex, "");
+
+    setAmount(parsedPrice);
   });
 
   $(".btn-decrement").on("click", function () {
     var now = $(".quantity > div > input").val();
+    const parsedPrice = getAndParsePrice();
 
     if ($.isNumeric(now)) {
       if (parseInt(now) - 1 > 0) {
         now--;
       }
       $(".quantity > div > input").val(now);
+      setAmount(parsedPrice * now);
     } else {
       $(".quantity > div > input").val("1");
+      setAmount(parsedPrice);
     }
   });
 
   $(".btn-increment").on("click", function () {
     var now = $(".quantity > div > input").val();
 
+    const parsedPrice = getAndParsePrice();
+
     if ($.isNumeric(now)) {
-      $(".quantity > div > input").val(parseInt(now) + 1);
+      const value = parseInt(now) + 1;
+
+      $(".quantity > div > input").val(value);
+      setAmount(parsedPrice * value);
     } else {
       $(".quantity > div > input").val("1");
+      setAmount(parsedPrice);
     }
   });
 });

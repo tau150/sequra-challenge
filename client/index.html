@@ -7,8 +7,25 @@
   <link href="./src/index.css" rel="stylesheet" />
   <link href="./src/demo/demo-page.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="./src/demo/main-demo-page.js"></script>
   <script type="module" src="/src/main.tsx"></script>
+  <script type="text/javascript">
+    // function init() {
+    //   Sequra.renderWidget("39999")
+    // }
+
+    // function load() {
+    //   var s = document.createElement('script')
+    //   s.type = 'text/javascript'
+    //   s.src = '../main.tsx'
+    //   s.type = "module"
+    //   s.onload = init
+    //   var x = document.getElementsByTagName('script')[0]
+    //   x.parentNode.insertBefore(s, x)
+    // }
+    //   window.addEventListener('load', load, false)
+  </script>
+  <script type="module" src="./src/demo/main-demo-page.js"></script>
+
 </head>
 
 <body>
@@ -140,6 +157,8 @@
             <!-- Submit Button -->
             <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-neutral-900 py-3 px-8 text-base font-medium text-white hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2">Add to bag</button>
 
+          </div>
+          <div id="sequra-widget">
           </div>
 
           <div id="root">

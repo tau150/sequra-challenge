@@ -27,6 +27,6 @@
       "public/*": ["public/"]
     }
   },
-  "include": ["src", "main.js", "tests"],
+  "include": ["src", "main.js", "tests", "lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
