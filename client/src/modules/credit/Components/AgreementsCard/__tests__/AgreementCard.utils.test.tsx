@@ -18,7 +18,7 @@ describe("mapAgreements util", () => {
 
       expect(option).toBeInTheDocument();
       expect(option.textContent).toBe(
-        `${agreement.installments} installments of ${agreement.amount}/month`,
+        `${agreement.installments} cuotas de ${agreement.amount}/mes`,
       );
     });
   });

@@ -19,6 +19,7 @@ $(document).ready(function () {
     const price = $(this).find("span").attr("data-price");
 
     $("#product-price").html(price);
+    $(".quantity > div > input").val("1");
 
     const parsedPrice = price.replace(regex, "");
 

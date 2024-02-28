@@ -62,10 +62,10 @@ const AgreementsCard = ({ amount }: Props) => {
       </div>
       <div className="p-2">
         <h4 className="align-center text-center text-lg mb-2 text-gray-400">
-          More flexibility in your payments
+          Más flexibilidad en tus pagos.
         </h4>
         <div className="flex justify-between">
-          <p className="text-sm">Split your payment</p>
+          <p className="text-sm">Divide tu pago</p>
           {isLoading ? (
             <div className="skeleton w-12 h-4 rounded-md" />
           ) : (
@@ -73,7 +73,7 @@ const AgreementsCard = ({ amount }: Props) => {
               className="text-sm underline text-green-400 cursor-pointer"
               onClick={handleOpenModal}
             >
-              More info
+              Más info
             </a>
           )}
         </div>
