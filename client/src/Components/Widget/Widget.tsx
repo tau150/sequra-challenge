@@ -7,7 +7,7 @@ import AgreementsCard from "@/modules/credit/Components/AgreementsCard/Agreement
 import { EVENT_SET_AMOUNT } from "@/Components/Widget/constants/index";
 
 interface Props {
-  initialAmount?: string;
+  amount?: string;
   isWidget?: boolean;
   style?: CSSProperties;
 }
@@ -18,12 +18,12 @@ interface SetAmountEvent extends CustomEvent {
   };
 }
 
-const Widget = ({ initialAmount, isWidget = false, style }: Props) => {
-  const [amount, setAmount] = useState(initialAmount);
+const Widget = ({ amount, isWidget = false, style }: Props) => {
+  const [uncontrolledAmount, setUncontrolledAmount] = useState(amount);
   const queryClient = new QueryClient();
 
   const listener: EventListener = useCallback((event: Event) => {
-    setAmount((event as SetAmountEvent).detail.amount);
+    setUncontrolledAmount((event as SetAmountEvent).detail.amount);
   }, []);
 
   useEffect(() => {
@@ -35,10 +35,10 @@ const Widget = ({ initialAmount, isWidget = false, style }: Props) => {
   }, [isWidget, listener]);
 
   useEffect(() => {
-    setAmount(initialAmount);
-  }, [initialAmount]);
+    setUncontrolledAmount(amount);
+  }, [amount]);
 
-  const finalAmount = isWidget ? amount : initialAmount;
+  const finalAmount = isWidget ? uncontrolledAmount : amount;
 
   if (!finalAmount) {
     return null;

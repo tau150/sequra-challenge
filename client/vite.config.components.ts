@@ -13,6 +13,7 @@ export default defineConfig(() => ({
     libInjectCss(),
     dts({
       include: ["lib/main-components"],
+      entryRoot: "../lib/main-components",
       insertTypesEntry: true,
     }),
   ],

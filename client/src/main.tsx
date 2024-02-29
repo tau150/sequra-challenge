@@ -7,14 +7,14 @@ import { EVENT_SET_AMOUNT, WIDGET_ID } from "@/Components/Widget/constants/index
 
 ReactDOM.createRoot(document.getElementById(WIDGET_ID)!).render(
   <React.StrictMode>
-    <Widget isWidget initialAmount="39999" />
+    <Widget isWidget amount="39999" />
   </React.StrictMode>,
 );
 
-export const renderWidget = (initialAmount?: string) => {
+export const renderWidget = (amount?: string) => {
   ReactDOM.createRoot(document.getElementById(WIDGET_ID)!).render(
     <React.StrictMode>
-      <Widget isWidget initialAmount={initialAmount} />
+      <Widget isWidget amount={amount} />
     </React.StrictMode>,
   );
 };

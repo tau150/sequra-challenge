@@ -21,7 +21,7 @@ const AgreementsCard = ({ amount }: Props) => {
   const [selectedInstallment, setSelectedInstallment] = useState<number>(0);
   const { data, isLoading, isError } = useGetAgreements(amount);
   const mutation = usePostLog({
-    onError: () => console.warn("Error in log event"),
+    onError: () => console.warn("Error in log event, check the log service"),
   });
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const AgreementsCard = ({ amount }: Props) => {
     <div className="w-96 mt-10 shadow-md rounded-lg">
       <div className="bg-green-100 p-2 flex justify-center">
         <figure>
-          <img alt="sequra-logo" className="my-2 w-[80px] " src={logo} />
+          <img alt="sequra-logo" className="my-2 w-[80px]" src={logo} />
         </figure>
       </div>
       <div className="p-2">
