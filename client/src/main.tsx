@@ -11,10 +11,10 @@ ReactDOM.createRoot(document.getElementById(WIDGET_ID)!).render(
   </React.StrictMode>,
 );
 
-export const renderWidget = (amount?: string) => {
+export const renderWidget = (amount?: string, style?: Record<string, string>) => {
   ReactDOM.createRoot(document.getElementById(WIDGET_ID)!).render(
     <React.StrictMode>
-      <Widget isWidget amount={amount} />
+      <Widget isWidget amount={amount} style={style} />
     </React.StrictMode>,
   );
 };
