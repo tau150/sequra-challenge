@@ -24,6 +24,12 @@ Write up a paragraph with the way you would distribute this prototype to all our
 
  <br><br>
 
+
+<img width="4000" alt="wireframe (1)" src="https://github.com/tau150/sequra-challenge/assets/11742373/8a726056-0881-429f-bde3-62c461c8cff7">
+
+ <br><br>
+
+
 # Solution
 
 <br>
