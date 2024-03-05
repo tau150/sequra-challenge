@@ -71,7 +71,6 @@ describe("fetcher function", () => {
       headers: {
         "x-test": "test-value",
         "Content-Type": "application/json",
-        "X-Device-Id": process.env.NEXT_PUBLIC_DEVICE_ID,
       },
     });
 

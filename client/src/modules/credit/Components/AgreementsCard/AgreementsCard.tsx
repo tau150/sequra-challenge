@@ -6,9 +6,9 @@ import InfoModal from "../InfoModal/InfoModal";
 
 import type { Agreement } from "@/modules/credit/domain/Agreement";
 
-import { EventType, EventContext } from "@/modules/logs/domain/LogEvent";
+import { EventType, EventContext } from "@/modules/track/domain/LogEvent";
 import { mapAgreements } from "@/modules/credit/Components/AgreementsCard/AgreementCard.utils";
-import { usePostLog } from "@/modules/logs/hooks/usePostLog";
+import { usePostLog } from "@/modules/track/hooks/usePostLog";
 import { useGetAgreements } from "@/modules/credit/hooks/useGetAgreements";
 import ErrorCard from "@/Components/ErrorCard/ErrorCard";
 

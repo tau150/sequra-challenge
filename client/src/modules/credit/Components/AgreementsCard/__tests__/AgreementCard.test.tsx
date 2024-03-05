@@ -4,14 +4,14 @@ import userEvent from "@testing-library/user-event";
 
 import AgreementsCard from "../AgreementsCard";
 
-import { EventType, EventContext } from "@/modules/logs/domain/LogEvent";
+import { EventType, EventContext } from "@/modules/track/domain/LogEvent";
 import { useGetAgreements } from "@/modules/credit/hooks/useGetAgreements";
-import { usePostLog } from "@/modules/logs/hooks/usePostLog";
+import { usePostLog } from "@/modules/track/hooks/usePostLog";
 
 const mockedMutate = vi.fn();
 
 vi.mock("@/modules/credit/hooks/useGetAgreements");
-vi.mock("@/modules/logs/hooks/usePostLog");
+vi.mock("@/modules/track/hooks/usePostLog");
 
 const mockedData = [
   {

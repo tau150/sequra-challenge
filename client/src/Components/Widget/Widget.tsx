@@ -49,7 +49,7 @@ const Widget = ({ amount, isWidget = false, style }: Props) => {
       <div style={style}>
         <ErrorBoundary>
           <QueryClientProvider client={queryClient}>
-            <div>{finalAmount && <AgreementsCard amount={finalAmount} />}</div>
+            <AgreementsCard amount={finalAmount} />
           </QueryClientProvider>
         </ErrorBoundary>
       </div>
